@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Chet</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bungee&display=swap" rel="stylesheet">
+
+    <style>
+        /* --- RESET & BASIC SETUP --- */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: #121212; /* Dark Theme Background */
+            color: #ffffff;
+            font-family: 'Bungee', cursive; /* Applied Bungee Font */
+            overflow-x: hidden;
+        }
+
+        /* --- PARTICLE BACKGROUND --- */
+        #particles-js {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: -1; /* Behind everything */
+            background-color: #0b0b0b; 
+        }
+
+        /* --- MAIN CONTAINER --- */
+        .container {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            z-index: 1;
+        }
+
+        /* --- TITLE --- */
+        header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        h1 {
+            font-size: 4rem;
+            color: #e0e0e0;
+            text-transform: uppercase;
+            text-shadow: 4px 4px 0px #333;
+            letter-spacing: 2px;
+        }
+
+        /* --- GRID LAYOUT --- */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        /* --- CARD (THE BOX) --- */
+        .card {
+            display: flex;
+            flex-direction: column;
+            background: #1e1e1e;
+            border-radius: 20px; /* Rounded corners */
+            overflow: hidden;
+            text-decoration: none;
+            color: white;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.27), box-shadow 0.3s ease;
+            cursor: pointer;
+            border: 2px solid transparent;
+        }
+
+        /* --- HOVER EFFECTS --- */
+        .card:hover {
+            transform: scale(1.05); /* Gets bigger on hover */
+            box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+            border-color: #555;
+            z-index: 10;
+        }
+
+        /* --- IMAGE AREA --- */
+        .card-image {
+            width: 100%;
+            height: 250px; /* Big image area */
+            object-fit: cover;
+            background-color: #333;
+            border-bottom: 2px solid #333;
+        }
+
+        /* --- TEXT AREA --- */
+        .card-text {
+            padding: 20px;
+            text-align: center;
+            background: #252525;
+            flex-grow: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .card-text p {
+            font-size: 1.1rem;
+            color: #ccc;
+            letter-spacing: 1px;
+        }
+
+        /* Mobile Adjustment */
+        @media (max-width: 600px) {
+            h1 { font-size: 2.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div id="particles-js"></div>
+
+    <div class="container">
+        <header>
+            <h1>The Chet</h1>
+        </header>
+
+        <div class="grid">
+            <a href="/proxy" class="card">
+                <img src="https://picsum.photos/400/300?random=1" alt="Visual 1" class="card-image">
+                <div class="card-text">
+                    <p>Proxy</p>
+                </div>
+            </a>
+
+            <a href="/drift" class="card">
+                <img src="https://picsum.photos/400/300?random=2" alt="Visual 2" class="card-image">
+                <div class="card-text">
+                    <p>online drift</p>
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+
+    <script>
+        /* particlesJS.load(@dom-id, @path-json, @callback (optional)); */
+        particlesJS("particles-js", {
+            "particles": {
+                "number": {
+                    "value": 80,
+                    "density": {
+                        "enable": true,
+                        "value_area": 800
+                    }
+                },
+                "color": {
+                    "value": "#ffffff"
+                },
+                "shape": {
+                    "type": "circle",
+                    "stroke": {
+                        "width": 0,
+                        "color": "#000000"
+                    }
+                },
+                "opacity": {
+                    "value": 0.5,
+                    "random": false,
+                    "anim": {
+                        "enable": false,
+                        "speed": 1,
+                        "opacity_min": 0.1,
+                        "sync": false
+                    }
+                },
+                "size": {
+                    "value": 3,
+                    "random": true,
+                    "anim": {
+                        "enable": false,
+                        "speed": 40,
+                        "size_min": 0.1,
+                        "sync": false
+                    }
+                },
+                "line_linked": {
+                    "enable": true,
+                    "distance": 150,
+                    "color": "#ffffff",
+                    "opacity": 0.2, /* Subtle lines */
+                    "width": 1
+                },
+                "move": {
+                    "enable": true,
+                    "speed": 2, /* Slow movement */
+                    "direction": "none",
+                    "random": false,
+                    "straight": false,
+                    "out_mode": "out",
+                    "bounce": false,
+                    "attract": {
+                        "enable": false,
+                        "rotateX": 600,
+                        "rotateY": 1200
+                    }
+                }
+            },
+            "interactivity": {
+                "detect_on": "canvas",
+                "events": {
+                    "onhover": {
+                        "enable": true,
+                        "mode": "grab" /* Connects particles to mouse */
+                    },
+                    "onclick": {
+                        "enable": true,
+                        "mode": "push"
+                    },
+                    "resize": true
+                },
+                "modes": {
+                    "grab": {
+                        "distance": 140,
+                        "line_linked": {
+                            "opacity": 0.6
+                        }
+                    },
+                    "push": {
+                        "particles_nb": 4
+                    }
+                }
+            },
+            "retina_detect": true
+        });
+    </script>
+</body>
+</html>
