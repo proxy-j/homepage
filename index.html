@@ -1,251 +1,229 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Chet</title>
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bungee&display=swap" rel="stylesheet">
-
+    <title>Home</title>
+    <script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
     <style>
-        /* --- RESET & BASIC SETUP --- */
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
         body {
-            background-color: #121212; /* Dark Theme Background */
-            color: #ffffff;
-            font-family: 'Bungee', cursive; /* Applied Bungee Font */
-            overflow-x: hidden;
+            margin: 0;
+            overflow: hidden; /* Hide scrollbars to make the particles background seamless */
+            background-color: #121212;
+            font-family: Arial, sans-serif;
+            color: white;
         }
 
-        /* --- PARTICLE BACKGROUND --- */
         #particles-js {
             position: fixed;
-            width: 100%;
-            height: 100%;
             top: 0;
             left: 0;
-            z-index: -1; /* Behind everything */
-            background-color: #0b0b0b; 
+            width: 100%;
+            height: 100%;
+            z-index: 0; /* Ensure particles stay in the background */
         }
 
-        /* --- MAIN CONTAINER --- */
-        .container {
+        .content {
             position: relative;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 40px 20px;
-            z-index: 1;
-        }
-
-        /* --- TITLE --- */
-        header {
+            z-index: 1; /* Place the content on top */
             text-align: center;
-            margin-bottom: 60px;
+            padding: 50px 20px;
         }
 
         h1 {
-            font-size: 4rem;
-            color: #e0e0e0;
-            text-transform: uppercase;
-            text-shadow: 4px 4px 0px #333;
-            letter-spacing: 2px;
+            margin-bottom: 30px;
+            font-size: 50px;
+            text-align: center;
         }
 
-        /* --- GRID LAYOUT --- */
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
+        .container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
         }
 
-        /* --- CARD (THE BOX) --- */
-        .card {
+        .box {
+            width: 180px;
+            height: 180px;
+            margin: 20px;
+            background-color: rgba(30, 30, 30, 0.8); /* Semi-transparent */
             display: flex;
             flex-direction: column;
-            background: #1e1e1e;
-            border-radius: 20px; /* Rounded corners */
-            overflow: hidden;
-            text-decoration: none;
-            color: white;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.5);
-            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.27), box-shadow 0.3s ease;
-            cursor: pointer;
-            border: 2px solid transparent;
-        }
-
-        /* --- HOVER EFFECTS --- */
-        .card:hover {
-            transform: scale(1.05); /* Gets bigger on hover */
-            box-shadow: 0 20px 40px rgba(0,0,0,0.6);
-            border-color: #555;
-            z-index: 10;
-        }
-
-        /* --- IMAGE AREA --- */
-        .card-image {
-            width: 100%;
-            height: 250px; /* Big image area */
-            object-fit: cover;
-            background-color: #333;
-            border-bottom: 2px solid #333;
-        }
-
-        /* --- TEXT AREA --- */
-        .card-text {
-            padding: 20px;
-            text-align: center;
-            background: #252525;
-            flex-grow: 1;
-            display: flex;
             align-items: center;
             justify-content: center;
+            color: white;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 10px;
+            transition: transform 0.3s, background-color 0.3s;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
         }
 
-        .card-text p {
-            font-size: 1.1rem;
-            color: #ccc;
-            letter-spacing: 1px;
+        .box:hover {
+            background-color: rgba(50, 50, 50, 0.9);
+            transform: scale(1.1);
         }
 
-        /* Mobile Adjustment */
-        @media (max-width: 600px) {
-            h1 { font-size: 2.5rem; }
+        .box img {
+            width: 120px;
+            height: 120px;
+            margin-bottom: 10px;
+            border-radius: 10px;
+        }
+
+        #titleimg {
+            width: 60px;
+            height: 60px;
         }
     </style>
 </head>
+
 <body>
-
     <div id="particles-js"></div>
-
-    <div class="container">
-        <header>
-            <h1>The Chet</h1>
-        </header>
-
-        <div class="grid">
-            <a href="/proxy" class="card">
-              <img src="https://raw.githubusercontent.com/proxy-j/homepage/main/internet.png" alt="Visual 1" class="card-image">
-                <div class="card-text">
-                    <p>Proxy</p>
-                </div>
-            </a>
-
-            <a href="/drift" class="card">
-                <img src="https://raw.githubusercontent.com/proxy-j/homepage/main/drift.png" alt="Visual 1" class="card-image">
-                <div class="card-text">
-                    <p>online drift</p>
-                </div>
-            </a>
-            
-            <a href="/city" class="card">
-                <img src="https://raw.githubusercontent.com/proxy-j/homepage/main/city-drift.png" alt="Visual 1" class="card-image">
-                <div class="card-text">
-                    <p>city drift</p>
-                </div>
-            </a>
-            
+    <div class="content">
+        <h1>the chet <img id="titleimg" src="https://cdn.glitch.global/10616f98-b5b5-4aa9-86f4-eeb704c198c0/Skull.gif?v=1733362791907"></h1>
+        <div class="container">
+            <div class="box" onclick="navigateTo('chet')">
+                <img src="https://cdn.glitch.global/10616f98-b5b5-4aa9-86f4-eeb704c198c0/favicon.ico?v=1731866990070" alt="The Chet">
+                The Chet
+            </div>
+            <div class="box" onclick="navigateTo('craft')">
+                <img src="data:image/png;base64,..." alt="Eaglercraft">
+                EaglerCraft
+            </div>
+            <div class="box" onclick="navigateTo('civilization')">
+                <img src="https://cdn.glitch.global/10616f98-b5b5-4aa9-86f4-eeb704c198c0/civilization-builder-game-cover?v=1733269036297" alt="Civilization Builder">
+                Civilization Builder
+            </div>
+            <div class="box" onclick="navigateTo('about-blank')">
+                <img src="https://cdn.glitch.global/10616f98-b5b5-4aa9-86f4-eeb704c198c0/1483687-200.png?v=1733278663426" alt="About:Blank opener">
+                A:B opener
+            </div>
+            <div class="box" onclick="navigateTo('car')">
+                <img src="https://pics.craiyon.com/2023-06-27/71be9ba0154340ea897da2b156223f72.webp" alt="Car Game">
+                8-bit car game
+            </div>
+            <div class="box" onclick="navigateTo('proxy')">
+                <img src="https://icons.veryicon.com/png/o/miscellaneous/base-icon-library-1/internet-54.png" alt="Proxy">
+                Proxy
+            </div>
         </div>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-
     <script>
-        /* particlesJS.load(@dom-id, @path-json, @callback (optional)); */
+        function navigateTo(page) {
+            location.href = page;
+        }
+
+        // Initialize particles.js
         particlesJS("particles-js", {
-            "particles": {
-                "number": {
-                    "value": 80,
-                    "density": {
-                        "enable": true,
-                        "value_area": 800
+            particles: {
+                number: {
+                    value: 80,
+                    density: {
+                        enable: true,
+                        value_area: 800
                     }
                 },
-                "color": {
-                    "value": "#ffffff"
+                color: {
+                    value: "#ffffff"
                 },
-                "shape": {
-                    "type": "circle",
-                    "stroke": {
-                        "width": 0,
-                        "color": "#000000"
+                shape: {
+                    type: "circle",
+                    stroke: {
+                        width: 0,
+                        color: "#000000"
+                    },
+                    polygon: {
+                        nb_sides: 5
                     }
                 },
-                "opacity": {
-                    "value": 0.5,
-                    "random": false,
-                    "anim": {
-                        "enable": false,
-                        "speed": 1,
-                        "opacity_min": 0.1,
-                        "sync": false
+                opacity: {
+                    value: 0.5,
+                    random: false,
+                    anim: {
+                        enable: false,
+                        speed: 1,
+                        opacity_min: 0.1,
+                        sync: false
                     }
                 },
-                "size": {
-                    "value": 3,
-                    "random": true,
-                    "anim": {
-                        "enable": false,
-                        "speed": 40,
-                        "size_min": 0.1,
-                        "sync": false
+                size: {
+                    value: 3,
+                    random: true,
+                    anim: {
+                        enable: false,
+                        speed: 40,
+                        size_min: 0.1,
+                        sync: false
                     }
                 },
-                "line_linked": {
-                    "enable": true,
-                    "distance": 150,
-                    "color": "#ffffff",
-                    "opacity": 0.2, /* Subtle lines */
-                    "width": 1
+                line_linked: {
+                    enable: true,
+                    distance: 150,
+                    color: "#ffffff",
+                    opacity: 0.4,
+                    width: 1
                 },
-                "move": {
-                    "enable": true,
-                    "speed": 2, /* Slow movement */
-                    "direction": "none",
-                    "random": false,
-                    "straight": false,
-                    "out_mode": "out",
-                    "bounce": false,
-                    "attract": {
-                        "enable": false,
-                        "rotateX": 600,
-                        "rotateY": 1200
+                move: {
+                    enable: true,
+                    speed: 6,
+                    direction: "none",
+                    random: false,
+                    straight: false,
+                    out_mode: "out",
+                    bounce: false,
+                    attract: {
+                        enable: false,
+                        rotateX: 600,
+                        rotateY: 1200
                     }
                 }
             },
-            "interactivity": {
-                "detect_on": "canvas",
-                "events": {
-                    "onhover": {
-                        "enable": true,
-                        "mode": "grab" /* Connects particles to mouse */
+            interactivity: {
+                detect_on: "canvas",
+                events: {
+                    onhover: {
+                        enable: true,
+                        mode: "repulse"
                     },
-                    "onclick": {
-                        "enable": true,
-                        "mode": "push"
+                    onclick: {
+                        enable: true,
+                        mode: "push"
                     },
-                    "resize": true
+                    resize: true
                 },
-                "modes": {
-                    "grab": {
-                        "distance": 140,
-                        "line_linked": {
-                            "opacity": 0.6
+                modes: {
+                    grab: {
+                        distance: 400,
+                        line_linked: {
+                            opacity: 1
                         }
                     },
-                    "push": {
-                        "particles_nb": 4
+                    bubble: {
+                        distance: 400,
+                        size: 40,
+                        duration: 2,
+                        opacity: 8,
+                        speed: 3
+                    },
+                    repulse: {
+                        distance: 200,
+                        duration: 0.4
+                    },
+                    push: {
+                        particles_nb: 4
+                    },
+                    remove: {
+                        particles_nb: 2
                     }
                 }
             },
-            "retina_detect": true
+            retina_detect: true
         });
     </script>
 </body>
+
 </html>
